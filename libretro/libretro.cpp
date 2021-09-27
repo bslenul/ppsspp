@@ -218,6 +218,7 @@ static RetroOption<int> ppsspp_texture_anisotropic_filtering("ppsspp_texture_ani
 static RetroOption<int> ppsspp_lower_resolution_for_effects("ppsspp_lower_resolution_for_effects", "Lower resolution for effects", { {"Off", 0}, {"Safe", 1}, {"Balanced", 2}, {"Aggressive", 3} });
 static RetroOption<bool> ppsspp_texture_deposterize("ppsspp_texture_deposterize", "Texture Deposterize", false);
 static RetroOption<bool> ppsspp_texture_replacement("ppsspp_texture_replacement", "Texture Replacement", false);
+static RetroOption<bool> ppsspp_texture_dump("ppsspp_texture_dump", "Texture Dump", false);
 static RetroOption<bool> ppsspp_gpu_hardware_transform("ppsspp_gpu_hardware_transform", "GPU Hardware T&L", true);
 static RetroOption<bool> ppsspp_vertex_cache("ppsspp_vertex_cache", "Vertex Cache (Speedhack)", false);
 static RetroOption<bool> ppsspp_cheats("ppsspp_cheats", "Internal Cheats Support", false);
@@ -264,6 +265,7 @@ void retro_set_environment(retro_environment_t cb)
    vars.push_back(ppsspp_texture_filtering.GetOptions());
    vars.push_back(ppsspp_texture_deposterize.GetOptions());
    vars.push_back(ppsspp_texture_replacement.GetOptions());
+   vars.push_back(ppsspp_texture_dump.GetOptions());
    vars.push_back(ppsspp_io_threading.GetOptions());
    vars.push_back(ppsspp_io_timing_method.GetOptions());
    vars.push_back(ppsspp_ignore_bad_memory_access.GetOptions());
@@ -364,6 +366,7 @@ static void check_variables(CoreParameter &coreParam)
    ppsspp_texture_anisotropic_filtering.Update(&g_Config.iAnisotropyLevel);
    ppsspp_texture_deposterize.Update(&g_Config.bTexDeposterize);
    ppsspp_texture_replacement.Update(&g_Config.bReplaceTextures);
+   ppsspp_texture_dump.Update(&g_Config.bSaveNewTextures);
    ppsspp_cheats.Update(&g_Config.bEnableCheats);
    ppsspp_locked_cpu_speed.Update(&g_Config.iLockedCPUSpeed);
    ppsspp_rendering_mode.Update(&g_Config.iRenderingMode);
